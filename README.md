@@ -40,15 +40,17 @@ samples, guidance on mobile development, and a full API reference.
 
 - install_plugin-2.0.1\android\src\main\AndroidManifest.xml
 ```
- <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.installplugin">
+  <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:tools="http://schemas.android.com/tools"
+      package="com.example.installplugin">
       <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
       <application>
           <provider
               android:name="androidx.core.content.FileProvider"
               android:authorities="${applicationId}.fileProvider.install"
               android:exported="false"
-              android:grantUriPermissions="true">
+              android:grantUriPermissions="true"
+              tools:replace="android:authorities">
               <meta-data
                   android:name="android.support.FILE_PROVIDER_PATHS"
                   android:resource="@xml/filepaths"/>
