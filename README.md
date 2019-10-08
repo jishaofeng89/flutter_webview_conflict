@@ -16,6 +16,11 @@ For help getting started with Flutter, view our
 samples, guidance on mobile development, and a full API reference.
 
 ## 处理flutter_webview_plugin, install_plugin, image_picker冲突
+    
+  image_picker插件：android:resource属性修改为：
+```
+  android:resource="@xml/filepaths"/>
+```
 
 - image_picker-0.6.1+4\android\src\main\AndroidManifest.xml
 ```
@@ -38,7 +43,20 @@ samples, guidance on mobile development, and a full API reference.
   </manifest>
 ```
 
+  插件install_plugin添加
+```
+  xmlns:tools="http://schemas.android.com/tools"
+```
+  并增加
+```
+  tools:replace="android:authorities"
+```
+  android:resource属性修改为：
+```
+  android:resource="@xml/filepaths"/>
+```
 - install_plugin-2.0.1\android\src\main\AndroidManifest.xml
+  
 ```
   <manifest xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:tools="http://schemas.android.com/tools"
